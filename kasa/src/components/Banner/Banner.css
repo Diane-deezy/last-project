@@ -1,0 +1,9 @@
+.lmj-banner {
+	padding: 32px;
+	display: flex;
+    align-items: center;
+}
+
+.lmj-logo {
+	display: flex;
+}
