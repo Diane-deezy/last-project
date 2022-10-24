@@ -1,9 +1,14 @@
 import * as React from "react";
-import Banner from "../../components/Banner/Banner";
 import "./Home.css";
+import IMG from '../../assets/IMG.png'
 
 function Home() {
-  return <Banner />
+  <main className="main-home">
+  <article className ="banner">
+    <img className="banner_img" src={IMG} alt="Chez vous, partout et ailleurs" />
+    <h2 className="banner_title">Chez vous, partout et ailleurs</h2>
+  </article>
+</main>
 }
 
 export default Home;
