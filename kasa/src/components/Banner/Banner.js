@@ -1,22 +1,14 @@
-import * as React from "react";
-import './Banner.css'
-import logo from '../../assets/LogoRed.png'
+import React from "react";
+import "./Banner.css";
 
-function Banner() {
-    return ( 
-    <header className='lmj-banner'>
-    <a href="#">
-        <img src={logo} alt='Kasa' className='lmj-logo' />
-        </a>
-    <nav className='navbar'>
-      <div className="navli">
-            <a href="#" className="nav">Accueil</a>
-          </div>
-      <div className="navli">
-            <a href="#" className="nav" to="/about">À propos</a>
-          </div>    
-    </nav>
-  </header>
-    )
+function Banner({image, texte}) {
+    return(
+        <div className="banner">
+            <img className="banner-img" src={image} alt="Banner"/>
+            <div className="banner-sombre"></div>
+            <span className="banner-txt">{texte}</span>
+        </div>
+    );
 }
-export default Banner
+
+export default Banner;

@@ -1,96 +1,41 @@
-.lmj-banner {
-	justify-content: space-between;
-	padding: 32px;
-	display: flex;
-    align-items: center;
-	flex-direction: row;
-    padding: 40px 100px;
+.banner {
+  border-radius: 25px;
+  height: 225px;
+  margin-bottom: 35px;
+  position: relative;
 }
 
-.lmj-logo {
-	display: flex;
-	height: 70px;
+.banner-img {
+  border-radius: 25px;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
-/*Navbar*/
-.navbar{
-	text-align: right;
-	  display:flex;
-	  justify-content: flex-end;
-	  gap: 50px;
-	  align-items: center;
-	  text-decoration: none;
-		-webkit-text-decoration-line: none;
-				text-decoration-line: none;
-	}
-	.navli{
-		color: #FF6060;
-		font-weight: 500;
-		text-decoration: none;
-		font-size: 24px;
-		font-family: "Montserrat", sans-serif;
-		line-height: 142.6%;
-	}
-	.navli :active {
-		-webkit-text-decoration-line: underline;
-		text-decoration-line: underline;
-		color: #FF6060;
-	}
-	.nav{
-		color:#FF6060;
-		text-decoration: none;
-		-webkit-text-decoration-line: none;
-				text-decoration-line: none;
-	}
-	
-	/********** Tablette **********/
-	
-	@media (max-width: 992px){
-	.lmj-banner{
-		padding: 40px 20px;
-		}
-	.lmj-logo{
-		height: 45px;
-		width: 145px;
-	}
-	
-	/*Navbar*/
-	.navbar{
-		gap: 15px;
-		display: flex;
-		flex-direction: row;
-	}
-	.navli {
-		font-family: "Montserrat", sans-serif;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 14px;
-		line-height: 142.6%;   
-		text-transform: uppercase;
-	}
-	
-	}
-	  
-	/************* Mobile *******************/
-	@media (max-width: 768px){
-	.lmj-banner{
-		padding : 20px;
-		align-items: center;
-		display: flex;
-	}
-	.navbar{
-		width: 70%;
-		flex-wrap: wrap;
-	}
-	.lmj-logo{
-		width: 70%;
-		height: 70%;
-	  }
-	
-	  .navli {
-	
-		  font-size: 12px;
-	  }
-		
-	}
-	
+.banner-sombre {
+  background-color: #000000;
+  border-radius: 25px;
+  height: 100%;
+  left: 0;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.banner-txt {
+  color: #ffffff;
+  font-size: 48px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1490px) {
+  .banner-txt {
+    font-size: 20px;
+    left: 15px;
+    transform: translateY(-50%);
+  }
+}

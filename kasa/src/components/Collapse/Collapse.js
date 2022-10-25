@@ -1,36 +1,25 @@
-import React, { useState, useRef } from 'react'
-import open from '../../assets/IconOpen.png'
-import './collapse.css'
+import React, { useState } from "react";
+import "./Collapse.css";
+import fleche from "../../assets/img/Fleche.svg";
 
+function Collapse({titre, description}) {
+    /* Crée un Hook d'état */
+    const [ouvert, setOuvert] = useState(false);
 
-export default function Collapse (props) {
-  const [setActive, setActiveState] = useState("");
-  const [setHeight, setHeightState] = useState("0px");
-  const [setRotate, setRotateState] = useState("open");
-  const content = useRef(null);
-  
-  function toggleCollapse() {
-    setActiveState(setActive === "" ? "active" : "");
-    setHeightState(setActive === "active" ? "0px" : `${content.current.scrollHeight}px`);
-    setRotateState(setRotate === "open" ? "close" : "open");
-
-  } 
-  return (
-        <div className="collapse_div">
-          <button className={`collapse_btn ${setActive}`} onClick={toggleCollapse}  >
-            <p className="collapse_title" >{props.title}</p>
-            <img className={`${setRotate}`} src={open} alt="ouvrir" />
-        </button>
-    
-          <div className="collapse_content" 
-          ref={content}
-          style={{ maxHeight: `${setHeight}` }}>
-            <p className="collapse_text">{props.content}</p>
-          </div>
+    return(
+        <div className="dropdown" id={`dropdown-${titre}`}>
+            <div className="header-dropdown">
+                <div className="titre-dropdown">{titre}</div>
+                <a className={`fleche-dropdown ${ouvert}`} href={`#dropdown-${titre}`} onClick={() => setOuvert(!ouvert)}>
+                    <img src={fleche} alt="Ouvrir cette liste"/>
+                </a>
+            </div>
+            {
+                /* Si le dropdown est à TRUE alors il affichera la description */
+                ouvert && <div className="description-dropdown">{description}</div>
+            }
         </div>
-    
-       
-    )}
-    
-  
-    
+    );
+}
+
+export default Collapse;

@@ -1,21 +1,13 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home/Home'
-import About from './pages/About/About'
-import Banner from './components/Banner/Banner'
-
+import React from "react";
+import './App.css';
+import RoutesPath from "../src/routes/RoutesPath";
 
 function App() {
     return (
-      <div className="App">
-          <Banner />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-    </div>
+        <div className="App">
+            <RoutesPath/>
+        </div>
     );
-  }
-  
-  export default App;
-  
+}
+
+export default App;

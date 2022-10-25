@@ -1,88 +1,44 @@
-/********** Desktop ************/
-.collapse_div{
-    flex-direction: column;
-    display: flex;
-}
-.collapse_btn{
-    background-color: #FF6060;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    height: 47px;
-    display: flex;
-    align-items: center;
-    border: none;
-    padding: 0;
-    justify-content: space-between;
-}
-.collapse_title{
-    font-weight: 500;
-    font-size: 24px;
-    text-align: left;
-    color: white;
-    display: flex;
-    align-items: left;
-    padding-left: 18px;
-    line-height: 142.6%;
-}
-.collapse_content{
-    background-color: #F7F7F7;
-    border-radius: 5px;
-    width : inherit;
-    overflow: auto;
-    display: flex;
-}
-.collapse_text{
-    color:#FF6060;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 142.6%;
-    padding : 27px 18px;
-    margin: 0;
-}
-/* Chevron*/
-.open {
-    padding-right: 18px;
-}
-.close{
-    transform: rotate(180deg);
-    padding-left: 18px;
+.dropdown {
+  border-radius: 5px;
+  margin-bottom: 35px;
+  text-align: left;
 }
 
-
-
-/********** Tablette **********/
-@media (max-width: 992px){
-.collapse_title{
-    font-size: 18px;
-    }
-.collapse_text{
-    font-size: 18px;
-    
-}
-    
+.header-dropdown {
+  align-items: center;
+  background-color: #ff6060;
+  border-radius: 5px;
+  display: inline-flex;
+  height: 25%;
+  min-height: 50px;
+  width: 100%;
 }
 
-
-/************* Mobile *******************/
-
-@media (max-width: 768px){
-.collapse_btn{
-    height: 30px;
+.titre-dropdown {
+  color: #ffffff;
+  height: 50px;
+  line-height: 50px;
+  margin: 5px 10px;
 }
 
-.collapse_title{
-        font-size: 13px;
-        padding-left: 11px;
- }
-.collapse_text{
-    font-size: 12px;
-    padding-left: 11px;
-    padding-right: 11px;
-    padding-top: 0px;
-    
-    }
+.fleche-dropdown {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  width: 100%;
+}
+.fleche-dropdown.true {
+  justify-content: start;
+  transform: rotate(-180deg);
+}
 
-
-    
+.description-dropdown {
+  background-color: #f6f6f6;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #ff6060;
+  height: 75%;
+  margin-top: -10px;
+  min-height: 100px;
+  padding: 25px 10px 10px 10px;
 }
