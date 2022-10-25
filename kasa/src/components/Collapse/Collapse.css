@@ -2,6 +2,7 @@
   border-radius: 5px;
   margin-bottom: 35px;
   text-align: left;
+  font-family: "Montserrat", "sans-serif";
 }
 
 .header-dropdown {
@@ -12,6 +13,7 @@
   height: 25%;
   min-height: 50px;
   width: 100%;
+  font-family: "Montserrat", "sans-serif";
 }
 
 .titre-dropdown {

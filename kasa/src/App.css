@@ -5,10 +5,18 @@ body {
   padding: 0;
 }
 
-/* Polices */
-* {
+.font-face-mt {
   font-family: "Montserrat";
-}
+ }
+
+ .font-face-mtm {
+  font-family: "MontserratMedium";
+ }
+
+ .font-face-mtb {
+  font-family: "MontserratBold";
+ }
+
 
 /* Contenu */
 .App {

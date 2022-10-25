@@ -3,7 +3,6 @@ import "./Slideshow.css";
 import fleche from "../../assets/img/Fleche.png";
 
 function Slideshow({images}) {
-    /* Crée un Hook d'état */
     let [imgAfficher, changerImg] = useState(0);
     let nombreImg = images.length;
 

@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './fonts/Montserrat-Black.ttf';
+import './fonts/Montserrat-Bold.ttf';
+import './fonts/Montserrat-Medium.ttf';
+import './fonts/Montserrat-Regular.ttf';
 
 ReactDOM.render(
   <React.StrictMode>
