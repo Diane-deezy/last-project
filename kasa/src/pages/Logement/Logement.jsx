@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import "./Logement.css";
 import {useParams, Navigate} from 'react-router-dom';
 import listeLogements from "../../assets/api/logements.json";
