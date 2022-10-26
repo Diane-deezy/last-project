@@ -6,7 +6,6 @@ import About from "../pages/About/About";
 import Erreur404 from "../pages/404/404";
 import Logement from "../pages/Logement/Logement";
 
-
 function RoutesPath() {
     return(
         <BrowserRouter basename={process.env.PUBLIC_URL}>
