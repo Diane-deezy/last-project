@@ -3,7 +3,6 @@ import "./Logement.css";
 import { useParams, Navigate } from 'react-router-dom';
 import ListeLogements from "../../assets/api/logements.json";
 import Slideshow from "../../components/Slideshow/Slideshow";
-import Tag from "../../components/Tag/Tag";
 import Etoile from "../../assets/img/Etoile.png";
 import EtoileVide from "../../assets/img/EtoileVide.png";
 import Dropdown from "../../components/Dropdown/Dropdown";
@@ -13,29 +12,8 @@ function Logement() {
     const id = useParams();
     const ficheLogement = ListeLogements.find(logement => logement.id === id.id);
 
-    /* Tags */
-    const tagsLogement = ficheLogement?.tags.map(function (tags, index) {
-        return <Tag key={index} nom={tags} />
-    });
-
     /* Notes */
-    let noteLogement = [];
-    let etoileComplete = true;
-    for (let index = 0; index < 5; index++) {
-        if(index === parseInt(ficheLogement?.rating)) {
-            etoileComplete = false;
-        }
-        if(etoileComplete === true) {
-            noteLogement.push(<img key={index} className="etoile" src={Etoile} alt={`${ficheLogement?.rating}/5`}/>)
-        } else {
-            noteLogement.push(<img key={index} className="etoile" src={EtoileVide} alt={`${ficheLogement?.rating}/5`}/>)
-        }
-    }
-
-    /* Équipements */
-    const equipementsLogement = ficheLogement?.equipments.map((equipment, index) => {
-        return <li key={index}>{equipment}</li>
-    })
+    const starsArray = [1, 2, 3, 4, 5];
 
     return(
         <>
@@ -48,7 +26,10 @@ function Logement() {
                                 <span className="titre-logement">{ficheLogement?.title}</span>
                                 <span className="endroit-logement">{ficheLogement?.location}</span>
                                 <div className="tags">
-                                    {tagsLogement}
+                                <ul className="tagsList">{ficheLogement?.tags.map((tagsItem, index) => 
+                                (<li className="tagsItems"> {tagsItem} </li>
+                                ))}
+                                </ul>
                                 </div>
                             </div>
                             <div className="proprietaire-note">
@@ -57,13 +38,22 @@ function Logement() {
                                     <img className="photo-propietaire" src={ficheLogement?.host.picture} alt="Propriétaire"/>
                                 </div>
                                 <div className="note">
-                                    {noteLogement}
+                                {starsArray.map((index) => (
+                <img
+                  alt="Nombre d'étoiles pour évaluer la qualité du logement"
+                  className="star"
+                  key={index}
+                  src={index <= ficheLogement?.rating ? Etoile : EtoileVide}
+                />
+              ))}
                                 </div>
                             </div>
                         </div>
                         <div className="description-equipements">
                             <Dropdown titre="Description" description={ficheLogement?.description}/>
-                            <Dropdown titre="Équipements" description={equipementsLogement}/>
+                            <ul class= "equipements">{ficheLogement?.equipments.map((cardItem, index) => (
+                  <li>{cardItem} </li>
+                ))}</ul>
                         </div>
                     </div>
                 ) : <Navigate replace to="/*"/>
