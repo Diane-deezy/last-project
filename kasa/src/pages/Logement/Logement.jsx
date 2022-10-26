@@ -1,24 +1,29 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./Logement.css";
 import { useParams, Navigate } from 'react-router-dom';
-import ListeLogements from "../../assets/api/logements.json";
 import Slideshow from "../../components/Slideshow/Slideshow";
 import Etoile from "../../assets/img/Etoile.png";
 import EtoileVide from "../../assets/img/EtoileVide.png";
 import Dropdown from "../../components/Collapse/Collapse";
 
-function Logement() {
-    /* Récupère la bonne fiche */
-    const id = useParams();
-    const ficheLogement = ListeLogements.find(logement => logement.id === id.id);
-
-    /* Notes */
-    const starsArray = [1, 2, 3, 4, 5];
-
-    return(
-        <>
-            {
-                ficheLogement ? (
+const starsArray = [1, 2, 3, 4, 5];
+const Logement = () => {
+    const [ficheLogement, setData] = useState([])
+    const {id} = useParams()
+    useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("http://localhost:3000/logement/" + id, {
+        credentials: "include",
+        method: "GET"
+      })
+      const ficheLogement = await response.json()
+      setData(ficheLogement)
+    }
+    fetchData()
+  }, [setData, id])
+  
+  if(ficheLogement.id === id) {
+    return (
                     <div className="Fiche">
                         <Slideshow images={ficheLogement.pictures}/>
                         <div className="logements-propietaire">
@@ -26,7 +31,7 @@ function Logement() {
                                 <span className="titre-logement">{ficheLogement.title}</span>
                                 <span className="endroit-logement">{ficheLogement.location}</span>
                                 <div className="tags">
-                                <ul className="tagsList">{ficheLogement.tags.map((tagsItem, index) => 
+                                <ul className="tagsList">{ficheLogement.tags.map((tagsItem) => 
                                 (<li className="tagsItems"> {tagsItem} </li>
                                 ))}
                                 </ul>
@@ -51,15 +56,18 @@ function Logement() {
                         </div>
                         <div className="description-equipements">
                             <Dropdown titre="Description" description={ficheLogement.description}/>
-                            <ul class= "equipements">{ficheLogement.equipments.map((cardItem, index) => (
+                            <ul class= "equipements">{ficheLogement.equipments.map((cardItem) => (
                   <li>{cardItem} </li>
                 ))}</ul>
                         </div>
                     </div>
-                ) : <Navigate replace to="/*"/>
-            }
-        </>
-    )
-}
+                )
+            } else {
+                return (
+                    <Navigate to="/404" />
+                )
+              }
+              }
+
 
 export default Logement;
