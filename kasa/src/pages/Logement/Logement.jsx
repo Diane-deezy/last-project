@@ -1,35 +1,28 @@
 import React, {useState, useEffect} from "react";
 import "./Logement.css";
-import { useParams, Navigate } from 'react-router-dom';
+import {useParams, Navigate} from 'react-router-dom';
+import listeLogements from "../../assets/api/logements.json";
 import Slideshow from "../../components/Slideshow/Slideshow";
 import Etoile from "../../assets/img/Etoile.png";
 import EtoileVide from "../../assets/img/EtoileVide.png";
 import Dropdown from "../../components/Collapse/Collapse";
 
-const starsArray = [1, 2, 3, 4, 5];
-const Logement = () => {
-    const [ficheLogement, setData] = useState([])
-    const {id} = useParams()
-    useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/logement/" + id, {
-        credentials: "include",
-        method: "GET"
-      })
-      const ficheLogement = await response.json()
-      setData(ficheLogement)
-    }
-    fetchData()
-  }, [setData, id])
+function Logement() {
+  const id = useParams();
+  const starsArray = [1, 2, 3, 4, 5];
+  const found = listeLogements.find(place => place.id === id.id);
+  if (!found) {
+    return <Navigate replace to="/404"/>
+  }
     return (
                     <div className="Fiche">
-                        <Slideshow images={ficheLogement.pictures}/>
+                        <Slideshow images={found.pictures}/>
                         <div className="logements-propietaire">
                             <div className="information-logements">
-                                <span className="titre-logement">{ficheLogement.title}</span>
-                                <span className="endroit-logement">{ficheLogement.location}</span>
+                                <span className="titre-logement">{found.title}</span>
+                                <span className="endroit-logement">{found.location}</span>
                                 <div className="tags">
-                                <ul className="tagsList">{ficheLogement.tags.map((tagsItem) => 
+                                <ul className="tagsList">{found.tags.map((tagsItem) => 
                                 (<li className="tagsItems"> {tagsItem} </li>
                                 ))}
                                 </ul>
@@ -37,8 +30,8 @@ const Logement = () => {
                             </div>
                             <div className="proprietaire-note">
                                 <div className="information-propietaire">
-                                    <span className="nom-proprietaire">{ficheLogement.host.name}</span>
-                                    <img className="photo-propietaire" src={ficheLogement.host.picture} alt="Propriétaire"/>
+                                    <span className="nom-proprietaire">{found.host.name}</span>
+                                    <img className="photo-propietaire" src={found.host.picture} alt="Propriétaire"/>
                                 </div>
                                 <div className="note">
                                 {starsArray.map((index) => (
@@ -46,21 +39,20 @@ const Logement = () => {
                   alt="Nombre d'étoiles pour évaluer la qualité du logement"
                   className="star"
                   key={index}
-                  src={index <= ficheLogement.rating ? Etoile : EtoileVide}
+                  src={index <= found.rating ? Etoile : EtoileVide}
                 />
               ))}
                                 </div>
                             </div>
                         </div>
                         <div className="description-equipements">
-                            <Dropdown titre="Description" description={ficheLogement.description}/>
-                            <ul class= "equipements">{ficheLogement.equipments.map((cardItem) => (
-                  <li>{cardItem} </li>
-                ))}</ul>
+                            <Dropdown titre="Description" description={found.description}/>
+                            <Dropdown class= "equipements">{found.equipments.map((cardItem) => (
+                  <li>{cardItem}</li> 
+                ))} </Dropdown>
                         </div>
                     </div>
-                )}
-
-
+                )
+              }
 
 export default Logement;
