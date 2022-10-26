@@ -21,8 +21,6 @@ const Logement = () => {
     }
     fetchData()
   }, [setData, id])
-  
-  if(ficheLogement.id === id) {
     return (
                     <div className="Fiche">
                         <Slideshow images={ficheLogement.pictures}/>
@@ -61,13 +59,8 @@ const Logement = () => {
                 ))}</ul>
                         </div>
                     </div>
-                )
-            } else {
-                return (
-                    <Navigate to="/404" />
-                )
-              }
-              }
+                )}
+
 
 
 export default Logement;

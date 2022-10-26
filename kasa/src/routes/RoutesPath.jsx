@@ -14,7 +14,7 @@ function RoutesPath() {
                     <Route path="/" element={<Home />}/>
                     <Route path="/a-propos" element={<About />}/>
                     <Route path="*" element={<Erreur404 />}/>
-                    <Route path="/logement" element={<Logement />}/>
+                    <Route path="/logement/:id" element={<Logement />}/>
                 </Routes>
             </Layout>
         </BrowserRouter>
