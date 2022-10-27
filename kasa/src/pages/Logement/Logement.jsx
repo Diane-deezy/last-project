@@ -6,6 +6,7 @@ import Slideshow from "../../components/Slideshow/Slideshow";
 import Etoile from "../../assets/img/Etoile.png";
 import EtoileVide from "../../assets/img/EtoileVide.png";
 import Dropdown from "../../components/Collapse/Collapse";
+import Tag from "../../components/Tag/Tag";
 
 function Logement() {
   const id = useParams();
@@ -22,10 +23,8 @@ function Logement() {
                                 <span className="titre-logement">{found.title}</span>
                                 <span className="endroit-logement">{found.location}</span>
                                 <div className="tags">
-                                <ul className="tagsList">{found.tags.map((tagsItem) => 
-                                (<li className="tagsItems"> {tagsItem} </li>
-                                ))}
-                                </ul>
+                                <ul className="tagsList">{found.tags.map((tags, index) => {
+        return <Tag key={index} nom={tags} />})} </ul>
                                 </div>
                             </div>
                             <div className="proprietaire-note">
@@ -46,10 +45,10 @@ function Logement() {
                             </div>
                         </div>
                         <div className="description-equipements">
-                            <Dropdown titre="Description" description={found.description}/>
-                            <Dropdown class= "equipements">{found.equipments.map((cardItem) => (
-                  <li>{cardItem}</li> 
-                ))} </Dropdown>
+                            <Dropdown titre="Description" content={found.description}/>
+                            <Dropdown titre="Équipements" class= "equipements" content={found.equipments.map((equipment, index) => {
+        return <li key={index}>{equipment}</li>
+    })}/>
                         </div>
                     </div>
                 )

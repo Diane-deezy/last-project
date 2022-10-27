@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Collapse.css";
 import fleche from "../../assets/img/Fleche.svg";
 
-function Collapse({titre, description}) {
+function Collapse({titre, content}) {
     /* Crée un Hook d'état */
     const [ouvert, setOuvert] = useState(false);
 
@@ -16,7 +16,7 @@ function Collapse({titre, description}) {
             </div>
             {
                 /* Si le dropdown est à TRUE alors il affichera la description */
-                ouvert && <div className="description-dropdown">{description}</div>
+                ouvert && <div className="description-dropdown">{content}</div>
             }
         </div>
     );
