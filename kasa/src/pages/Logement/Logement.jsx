@@ -15,21 +15,23 @@ function Logement() {
   if (!found) {
     return <Navigate replace to="/404"/>
   }
-    return (
-                    <div className="Fiche">
+    return ( 
+                <div className="Fiche">
                         <Slideshow images={found.pictures}/>
                         <div className="logements-propietaire">
+                        <div className ="nomLogement font-face-mtm">
                             <div className="information-logements">
                                 <span className="titre-logement">{found.title}</span>
                                 <span className="endroit-logement">{found.location}</span>
+                                </div>
                                 <div className="tags">
                                 <ul className="tagsList">{found.tags.map((tags, index) => {
         return <Tag key={index} nom={tags} />})} </ul>
                                 </div>
-                            </div>
-                            <div className="proprietaire-note">
+                                </div>
+                          <div className="proprietaire-note">
                                 <div className="information-propietaire">
-                                    <span className="nom-proprietaire">{found.host.name}</span>
+                                    <span className="nom-proprietaire font-face-mt">{found.host.name}</span>
                                     <img className="photo-propietaire" src={found.host.picture} alt="Propriétaire"/>
                                 </div>
                                 <div className="note">
@@ -50,8 +52,7 @@ function Logement() {
         return <li key={index}>{equipment}</li>
     })}/>
                         </div>
-                    </div>
-                )
+                    </div> )
               }
-
+              
 export default Logement;

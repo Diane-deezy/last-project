@@ -1,11 +1,14 @@
-a .card {
-    width: 30%;
+a {
+    width: 32%;
 }
 
 .card {
     display: flex;
     border-radius: 10px;
     position: relative;
+    margin: 15px;
+    min-height: 255px;
+
 }
 .card :hover {
     background: linear-gradient(180deg, #ff6060 85%, #000000a6 100%);
@@ -41,8 +44,10 @@ a .card {
     position: absolute;
 }
 
-@media screen and (max-width: 1490px) {
-    .card {
-        min-height: 255px;
-    }
+@media (max-width: 767px) {
+    a {
+        padding: 0;
+        width: 100%;
+      }
+
 }

@@ -12,3 +12,13 @@
 .tag:first-of-type {
     margin-left: 0;
 }
+
+
+@media (max-width: 767px) {
+    .tag {
+        font-size: 11px;
+        min-width: auto;
+        padding: 5px 5px;
+    }
+
+}

@@ -9,18 +9,22 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-@media screen  and (max-width: 1490px) {
     .Home > .banner {
         height: 110px;
         margin-bottom: 20px;
     }
 
+    @media (max-width: 767px) {
+
     .liste-logements {
-        background-color: unset;
-        gap: 20px 0;
-        grid-template-columns: 1fr;
-        padding: 0;
+        flex-direction: column;
     }
-}
+
+    .banner {
+        height: 125px;
+    }
+
+    }

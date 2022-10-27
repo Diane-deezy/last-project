@@ -28,13 +28,27 @@
   font-size: 40px;
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
+  left: 22%;
 }
 
-@media screen and (max-width: 1490px) {
-  .banner-txt {
-    font-size: 40px;
-    left: 15px;
-    transform: translateY(-50%);
+@media (max-width: 767px) {
+  .banner {
+    height: 125px;
+    margin-bottom: 25px;
+    position: relative;
   }
+
+  .banner-img {
+    border-radius: 15px;
+  }
+  .banner-sombre {
+    border-radius: 15px;
+  }
+
+  .banner-txt {
+    font-size: 22px;
+    left: 12%;
+    }
+
 }

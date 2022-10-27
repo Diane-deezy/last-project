@@ -2,13 +2,21 @@
     color: #ff6060;
 }
 
+.Fiche {
+    color: #ff6060;
+}
+
 .logements-propietaire {
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     width: 100%;
 }
 
-.logements-propietaire > div {
-    flex: 1 0 auto;
+.nomLogement {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .information-logements {
@@ -16,13 +24,14 @@
 }
 
 .titre-logement {
-    font-size: 36px;
+    display: block;
+    font-size: 21px;
+    margin-bottom: 5px;
 }
 
 .endroit-logement {
-    display: block;
-    font-size: 18px;
-    margin-bottom: 25px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .information-propietaire {
@@ -30,7 +39,9 @@
     display: flex;
     justify-content: flex-end;
     margin-bottom: 25px;
+    width: 100%;
 }
+
 
 .nom-proprietaire {
     font-size: 18px;
@@ -70,42 +81,26 @@
     width: 50%;
 }
 
-@media screen and (max-width: 1490px) {
-    .logements-propietaire {
-        display: block;
-    }
+.tagsList {
+    padding-inline-start: 0px;
+}
 
-    .titre-logement {
-        display: block;
-        font-size: 24px;
-        margin-bottom: 5px;
-    }
+.tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 10px 0;
+}
 
-    .endroit-logement {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
+.tags > .tag {
+    margin-left: 0px;
+    min-width: 50px;
+}
 
-    .tags {
-        display: inline-flex;
-        flex-wrap: wrap;
-        gap: 10px 0;
-    }
+.proprietaire-note {
+    width: 100%;
+}
 
-    .tags > .tag {
-        margin-left: 0px;
-        min-width: 50px;
-    }
-
-    .proprietaire-note {
-        display: inline-flex;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        margin-top: 25px;
-        width: 100%;
-    }
-
-    .information-propietaire {
+.information-propietaire {
         margin-bottom: unset;
         width: 100%;
     }
@@ -115,13 +110,10 @@
         width: 32px;
     }
 
-    .etoile {
-        height: 25px;
-        width: 25px;
-    }
-
-    .description-equipements {
-        display: block;
+    .star {
+        height: 25px ;
+        margin-right: 10px;
+        margin-top: 20px;
     }
 
     .description-equipements > .dropdown {
@@ -131,4 +123,25 @@
     .dropdown {
         margin-bottom: 20px;
     }
-}
+
+    @media (max-width: 767px) {
+        .logements-propietaire {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .proprietaire-note {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .star {
+            margin-top: 0px;
+            margin-right: 5px;
+        }
+
+        .description-equipements {
+            display: block;
+        }
+
+    }

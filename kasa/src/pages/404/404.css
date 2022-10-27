@@ -1,5 +1,6 @@
 .page-404 {
-  text-align: center
+  text-align: center;
+  margin-top: 10%;
 }
 
 .titre-404 {
@@ -12,19 +13,22 @@
   color: #ff6060;
   display: block;
   font-size: 20px;
+  margin-bottom: 200px;
 }
 
-.lien-site.lien-404 {
+a .lien-404 {
   display: block;
   margin-top: 150px;
 }
-
-@media screen and (max-width: 1490px) {
-  .titre-404 {
-    font-size: 96px;
-  }
   
   .description-404 {
     font-size: 18px;
   }
+
+  @media (max-width: 767px) {
+
+  .titre-404 {
+    margin-top: 30%;
+    font-size: 100px;
 }
+  }

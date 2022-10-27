@@ -1,6 +1,8 @@
 .dropdown {
   border-radius: 5px;
   margin-bottom: 35px;
+  margin-left: 5%;
+  margin-right: 5%;
   text-align: left;
   font-family: "Montserrat", "sans-serif";
 }
@@ -21,6 +23,7 @@
   height: 50px;
   line-height: 50px;
   margin: 5px 10px;
+  font-size: 18px;
 }
 
 .fleche-dropdown {
@@ -40,7 +43,14 @@
   border-bottom-right-radius: 5px;
   color: #ff6060;
   height: 75%;
-  margin-top: -10px;
-  min-height: 100px;
+  min-height: 80px;
   padding: 25px 10px 10px 10px;
+  font-size: 20px;
+}
+
+
+@media (max-width: 767px) {
+  .dropdown {
+    margin: 0;
+  }
 }
