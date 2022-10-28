@@ -1,14 +1,14 @@
 .carrousel {
     display: block;
-    height: 415px;
-    margin: auto auto 30px auto;
+    height: 350px;
+    margin: auto auto 15px auto;
     position: relative;
     width: 100%;
 }
 
 .fleche {
     position: absolute;
-    width: 45px;
+    width: 15px;
     z-index: 1;
 }
 .fleche:hover {
@@ -17,12 +17,12 @@
 }
 
 .fleche-gauche {
-    margin-left: 25px;
+    margin-left: 5px;
     top: 50%;
     transform: translateY(-50%) rotate(180deg);
 }
 .fleche-droite {
-    margin-right: 25px;
+    margin-right: 5px;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
@@ -30,7 +30,7 @@
 
 .carrousel-img {
     border-radius: 15px;
-    height: 415px;
+    height: 350px;
     object-fit: cover;
     display: none;
     width: 100%
@@ -39,21 +39,9 @@
     display: block;
 }
 
-@media screen and (max-width: 1490px) {
+@media (max-width: 767px) {
     .carrousel {
         height: 255px;
-        margin: auto auto 15px auto;
-    }
-
-    .fleche {
-        width: 15px;
-    }
-    
-    .fleche-gauche {
-        margin-left: 5px;
-    }
-    .fleche-droite {
-        margin-right: 5px;
     }
 
     .carrousel-img {

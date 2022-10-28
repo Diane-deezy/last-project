@@ -1,5 +1,11 @@
+.dropdown {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 @media (max-width: 767px) {
-.banner {
-    height: 200px;
-}
-}
+    .bannerAbout {
+        height: 200px;
+    }
+    }
+

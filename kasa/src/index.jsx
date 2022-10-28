@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -8,13 +8,13 @@ import './fonts/Montserrat-Bold.ttf';
 import './fonts/Montserrat-Medium.ttf';
 import './fonts/Montserrat-Regular.ttf';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <div className="contenu">        
+const rootElement = document.getElementById('root');
+const root = ReactDOM.createRoot(rootElement);
+
+root.render(
+  <React.StrictMode>    
         <App />      
-    </div>
   </React.StrictMode>,
-  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

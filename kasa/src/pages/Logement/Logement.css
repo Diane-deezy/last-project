@@ -119,10 +119,12 @@
     .description-equipements > .dropdown {
         width: 100%;
     }
-    
+
     .dropdown {
-        margin-bottom: 20px;
+        margin-left: 0;
+        margin-right: 0;
     }
+    
 
     @media (max-width: 767px) {
         .logements-propietaire {
@@ -142,6 +144,10 @@
 
         .description-equipements {
             display: block;
+        }
+
+        .dropdown {
+            margin-bottom: 20px;
         }
 
     }

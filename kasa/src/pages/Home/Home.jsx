@@ -10,7 +10,7 @@ function Home() {
     return(
         <div className="Accueil">
             <div className ="font-face-mtm">
-            <Banner image={banniereAccueil} texte="Chez vous, partout et ailleurs"/> </div>
+            <Banner className="banner" image={banniereAccueil} texte="Chez vous, partout et ailleurs"/> </div>
             <div className ="font-face-mt">
             <div className="liste-logements">
                 {ListeLogements.map((logement) => <NavLink key={logement.id} to={"/logement/"+logement.id+"/#"}><Card key={logement.id} id={logement.id} image={logement.cover} titre={logement.title} /></NavLink>)}
